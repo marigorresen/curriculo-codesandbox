@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATUALIZA CURSO</title>
+</head>
+<body>
+    <h1>Atualiza o curso</h1>
+        <br>
+            <!--Cria a classe para inserir o CNPJ ou CPF para cadastro-->
+            <form id="formulario" name="form2" method="post" action="/atualizaCurso" class="textfield">
+                <label for="usuario">Nome do Curso</label>
+                <input type="text" name="Nome_curso"><br>
+                <label for="usuario">Descrição do curso</label>
+                <input type="text" name="Descricao_curso"><br>
+                <label for="usuario">Periodo do curso</label>
+                <input type="text" name="Periodo_curso"><br>
+                <!--Cria o botao para avançar-->
+                <button class="btn-login">AVANÇAR</button>
+            </form>
+        <script>
+            let form = document.getElementById("formulario");
+            let idCurso = +window.location.search.replace('?', '');
+
+            form.action = '/atualizaCurso?CursoID=' + idCurso;
+
+        </script>
+</body>
+</html>

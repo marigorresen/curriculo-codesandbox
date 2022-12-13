@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADICIONAR CURSO</title>
+</head>
+<body>
+    <h1>Insira um curso</h1>
+        <br>
+            <!--Cria a classe para inserir o CNPJ ou CPF para cadastro-->
+            <form name="form1" method="post" action="/insereCurso" class="textfield">
+                <label for="usuario">Nome do Curso</label>
+                <input type="text" name="Nome_curso" placeholder="Engenharia de Software"><br>
+                <label for="usuario">Descrição do curso</label>
+                <input type="text" name="Descricao_curso" placeholder="Exemplo: Faculdade XXX"><br>
+                <label for="usuario">Periodo do curso</label>
+                <input type="text" name="Periodo_curso" placeholder="Exemplo: 2020 - 2021"><br>
+                <!--Cria o botao para avançar-->
+                <button class="btn-login">AVANÇAR</button>
+            </form>
+</body>
+</html>
