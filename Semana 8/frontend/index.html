@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>Tutorial - Layout Responsivo</title>
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#imagem").click(function(){
+        $("#imagem").attr("src", "Picture 048.jpg");
+      });
+
+      $("#nome").hover(function(){
+        $(this).css("color", "#3e0f67");
+      },
+      function(){
+       $(this).css("color", "#fff");
+      });
+      
+    });
+    
+  </script>
+</head>
+<body>
+  <div id="principal">
+    <div id="logo"><img src="https://www.inteli.edu.br/wp-content/uploads/2022/04/28103439/Logo-Container.png" alt="Logotipo Inteli"></div>
+    <div id="conteudo">
+      <div class="interno">
+        <h1 id="nome">Mariana Brasil Görresen</h1>
+        <h2>Aluna de Ciência da Computação</h2>
+        <p><img src="https://raw.githubusercontent.com/marigorresen/Modulo_2/main/02_AUT_EST_ENTREGA/Semana%205/ALUNOS_2022.2_MARIANA%20BRASIL_A2022_2A_0137.png" id="imagem" alt="imagem"></p>
+        <br/>
+        <h1>Formação</h1>
+        <p><a href="adicionar.html">Adicionar Curso</a></p><br/>
+        <div id="listar">
+        </div>
+      </div>
+    </div>
+    <div id="lateral">
+      <div class="interno">
+        <h1>Experiência</h1>
+        <ul>
+          <li>Linguagens de programação: C, C++, JavaScript e GDscript.</li>
+          <li>Desenvolvimento de jogo, gênero "Serious Game".<br/>
+            Projeto acadêmico do primerio módulo na faculdade Inteli, onde atuei principalmente no processo de desenvolvimento do código e depuração, também tive a expêriencia de trabalhar pela primeira vez com metodologia ágil e ser scrum master. <br/>
+            Link  do jogo: https://2022m1t6.github.io/Projeto5/<br/>
+            Cliente: Empresa Dell Technologies.
+            </li>
+        </ul>
+        <br/>
+        <h1>Habilidades</h1>
+        <ul>
+          <li>Liderança.</li>
+          <li>Desenvolvimento de UX/UI</li>
+          <li>Nível avançado na lingua inglesa</li>
+        </ul>
+
+      </div>
+    </div>
+    <div id="rodape">
+      <p>Curriculo</p>
+    </div>
+  </div>
+  <script>
+    const urlCurso = "/curso";
+    const divCurso = document.getElementById("listar");
+
+        fetch(urlCurso)//faz a requisição
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let saida = '';
+                let cursos = data;
+                cursos.map(function (cursos) {//map é um método que percorre o array
+                  saida += '<h2>' + `${cursos.Descricao_curso}` + '</h2><p>' + `${cursos.Nome_curso}` + '|' + `${cursos.Periodo_curso}` + ' | <a href="/removeCurso?CursoID=' + `${cursos.CursoID}` + '">DELETE</a> | <a href="/atualiza.html?' + `${cursos.CursoID}` + '">UPDATE</a></p><br>'  
+                });
+                divCurso.innerHTML = saida;
+            })
+
+  </script>
+</body>
+</html>
